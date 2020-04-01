@@ -23,4 +23,19 @@ export class LeaveListComponent implements OnInit {
   add(){
     this.route.navigateByUrl("Admin/leave/Add");
   }
+  deleteLeave(leave: Leave){
+    if (confirm(`Are you sure, you want to delete : ${leave.name} ?`))
+    {
+      this.service.deleteLeave(leave.leaveid)
+        .subscribe(
+          () => this.getLeaveData()
+        );
+    }
+    window.location.reload();
+  }
+  getLeaveData(){
+    this.service.getLeaves().subscribe(
+      data => this.leave = data
+    );
+  }
 }

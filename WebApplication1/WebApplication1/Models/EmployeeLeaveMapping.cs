@@ -18,7 +18,5 @@ namespace WebApplication1.Models
         public string leaveStartDate { get; set; }
         public string leaveEndDate { get; set; }
         public string status { get; set; }
-        public Employee employee { get; set; }
-        public Leave leave { get; set; }
     }
 }

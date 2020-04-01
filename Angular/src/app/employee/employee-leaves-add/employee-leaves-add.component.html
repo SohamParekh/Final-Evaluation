@@ -8,7 +8,7 @@
           class="form-control"
           name="leavetype"
           id="leavetype"
-
+          [(ngModel)]="empleave.leaveid"
         >
           <option > type </option>
         </select>
@@ -21,6 +21,7 @@
           name="fromdate"
           placeholder="DD/MM/YYYY"
           class="form-control"
+          [(ngModel)]="empleave.leaveStartDate"
           required
         />
       </div>
@@ -32,6 +33,7 @@
           name="todate"
           placeholder="DD/MM/YYYY"
           class="form-control"
+          [(ngModel)]="empleave.leaveEndDate"
           required
         />
       </div>

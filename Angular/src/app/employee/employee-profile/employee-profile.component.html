@@ -1,4 +1,9 @@
-<h1>Profile</h1>
+<div class="row">
+  <h1 class="col-md-10">Profile</h1>
+  <div class="form-group col-md-2" style="margin-top: 1%;">
+    <button [routerLink]="['/Employee/LeaveList/'+this.ID]" class="btn btn-outline-primary">Goto Leaves</button>
+  </div>
+</div>
 <hr>
 <div class="row">
   <div class="col-md-1"></div>
@@ -10,4 +15,9 @@
   <div class="col-md-1"></div>
   <div class="col-md-4">Email: {{employee.email}}</div>
   <div class="col-md-3">Date of Birth: {{employee.dob}}</div>
+</div>
+<div class="row" style="margin-top: 2%;margin-left: 7%;">
+  <div class="form-group col-md-2" >
+    <button [routerLink]="['/Employee/Profile/Edit',employee.employeeid]" class="btn btn-outline-primary">Update Details</button>
+  </div>
 </div>

@@ -12,6 +12,8 @@ import { EmployeeProfileComponent } from './employee/employee-profile/employee-p
 import { EmployeeLeavesComponent } from './employee/employee-leaves/employee-leaves.component';
 import { EmployeeLeavesAddComponent } from './employee/employee-leaves-add/employee-leaves-add.component';
 import { AppComponent } from './app.component';
+import { EmployeeEditComponent } from './employee/employee-edit/employee-edit.component';
+import { EmpADDComponent } from './admin/emp-add/emp-add.component';
 
 
 @NgModule({
@@ -21,7 +23,8 @@ import { AppComponent } from './app.component';
       { path: 'Admin', component: AdminComponent,
         children : [
           { path: 'Employee/List', component: EmployeeListComponent },
-          { path: 'Employee/Add/:id', component: EmployeeAddComponent },
+          { path: 'Employee/Edit/:id', component: EmployeeAddComponent },
+          { path: 'Employee/Add', component: EmpADDComponent },
           { path: 'leave/Add', component: LeaveAddComponent },
           { path: 'leave/List', component: LeaveListComponent },
           { path: 'leaveList/Employee', component: LeaveListDetailsComponent },
@@ -30,8 +33,9 @@ import { AppComponent } from './app.component';
       { path: 'Employee', component:  EmployeeComponent,
         children : [
           { path: 'Profile/:id', component:  EmployeeProfileComponent},
+          { path: 'Profile/Edit/:id', component:  EmployeeEditComponent},
           { path: 'LeaveList/:id', component: EmployeeLeavesComponent },
-          { path: 'LeaveList/Add', component: EmployeeLeavesAddComponent },
+          { path: 'LeaveList/:id/Add', component: EmployeeLeavesAddComponent },
         ]
       },
 

@@ -78,13 +78,13 @@ namespace WebApplication1.Controllers
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for
         // more details see https://aka.ms/RazorPagesCRUD.
         [HttpPost]
-        public async Task<ActionResult<Employee>> PostEmployee(Employee employee)
+        public ActionResult<Employee> PostEmployee([FromBody]Employee employee)
         {
             _context.employees.Add(employee);
-            await _context.SaveChangesAsync();
+             _context.SaveChanges();
             //_context.SaveChanges();
-            //return Ok(employee);    
-             return CreatedAtAction("GetEmployee", new { id = employee.employeeid }, employee);
+            return Ok(employee);    
+            // retur("GetEmployee", new { id = employee.employeeid }, employee);
         }
 
         // DELETE: api/Employees/5

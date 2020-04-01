@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\CSharp\\WebApplication1\\WebApplication1\\WebApplication1\\WebApplication1.csproj": {}
+    "D:\\CSharp\\Final-Evaluation\\WebApplication1\\WebApplication1\\WebApplication1.csproj": {}
   },
   "projects": {
-    "D:\\CSharp\\WebApplication1\\WebApplication1\\WebApplication1\\WebApplication1.csproj": {
+    "D:\\CSharp\\Final-Evaluation\\WebApplication1\\WebApplication1\\WebApplication1.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\CSharp\\WebApplication1\\WebApplication1\\WebApplication1\\WebApplication1.csproj",
+        "projectUniqueName": "D:\\CSharp\\Final-Evaluation\\WebApplication1\\WebApplication1\\WebApplication1.csproj",
         "projectName": "WebApplication1",
-        "projectPath": "D:\\CSharp\\WebApplication1\\WebApplication1\\WebApplication1\\WebApplication1.csproj",
+        "projectPath": "D:\\CSharp\\Final-Evaluation\\WebApplication1\\WebApplication1\\WebApplication1.csproj",
         "packagesPath": "C:\\Users\\SOHAM\\.nuget\\packages\\",
-        "outputPath": "D:\\CSharp\\WebApplication1\\WebApplication1\\WebApplication1\\obj\\",
+        "outputPath": "D:\\CSharp\\Final-Evaluation\\WebApplication1\\WebApplication1\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\SOHAM\\AppData\\Roaming\\NuGet\\NuGet.Config",

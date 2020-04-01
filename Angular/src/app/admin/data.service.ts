@@ -33,6 +33,15 @@ export class DataService {
       );
     }
 }
+getEmployeesLeavebyId(id: number) {
+
+    return this.http.get(this.url+`/EmployeeLeaveMappings/${id}`)
+    .pipe(
+      tap(data => console.log('getEmployeesbyId: ' + JSON.stringify(data))),
+      //catchError(this.handleError)
+    );
+
+}
 private initializeEmployee(): Employee {
   return {
     employeeid:0,
@@ -62,8 +71,8 @@ private initializeEmployee(): Employee {
         //catchError(err => this.handleError(err))
       );
   }
-  postEmployeeDetails(Employee:Employee): Observable<Employee>{
-    return this.http.post<Employee>(this.url+'/Employees', Employee, {
+  postEmployeeDetails(Employee:Employee){
+    return this.http.post(this.url+'/Employees',JSON.stringify(Employee), {
       headers: new HttpHeaders({
         'Content-Type': 'application/json'
       })
@@ -81,10 +90,24 @@ private initializeEmployee(): Employee {
        // catchError(this.handleError)
       );
   }
-  deleteEmployee(id: number): Observable<{}> {
+  updateEmployeeLeave(employeeleave: EmployeeLeaveMapping) {
+    return this.http.put(this.url+`/EmployeeLeaveMappings/${employeeleave.id}`,employeeleave , {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json'
+      })
+    });
+  }
+  deleteEmployee(id: number): Observable<Employee> {
     return this.http.delete<Employee>(this.url+`/Employees/${id}`, {
       headers: new HttpHeaders({
-        'Accept': 'application/json'
+        'Content-Type': 'application/json'
+      })
+    })
+  }
+  deleteLeave(id: number): Observable<Leave> {
+    return this.http.delete<Leave>(this.url+`/Leaves/${id}`, {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json'
       })
     })
   }

@@ -36,5 +36,4 @@ export class EmployeeProfileComponent implements OnInit {
       (employee: Employee) => {this.employee = employee},
     );
   }
-
 }

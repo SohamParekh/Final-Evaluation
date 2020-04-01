@@ -14,6 +14,7 @@
           name="leavename"
           class="form-control"
           placeholder="Leave Name"
+          [(ngModel)]="leave.name"
           required
         />
       </div>
@@ -25,6 +26,7 @@
           name="numberofdays"
           placeholder="Number of Days"
           class="form-control"
+          [(ngModel)]="leave.maximumLeavesAllowed"
           required
         />
       </div>
@@ -33,6 +35,8 @@
       <button
            type="submit"
            class="btn btn-primary"
+           [disabled]="form.invalid"
+           (click)="saveLeave()"
            >
            Submit Data
       </button>

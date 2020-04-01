@@ -15,6 +15,8 @@ import { EmployeeComponent } from './employee/employee.component';
 import { EmployeeLeavesAddComponent } from './employee/employee-leaves-add/employee-leaves-add.component';
 import { LoginComponent } from './login/login.component';
 import { AppRoutingModule } from './app-routing.module';
+import { EmployeeEditComponent } from './employee/employee-edit/employee-edit.component';
+import { EmpADDComponent } from './admin/emp-add/emp-add.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +31,9 @@ import { AppRoutingModule } from './app-routing.module';
     EmployeeLeavesComponent,
     EmployeeComponent,
     EmployeeLeavesAddComponent,
-    LoginComponent
+    LoginComponent,
+    EmployeeEditComponent,
+    EmpADDComponent
   ],
   imports: [
     BrowserModule,

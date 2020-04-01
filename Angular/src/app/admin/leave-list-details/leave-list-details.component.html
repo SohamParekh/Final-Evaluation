@@ -54,11 +54,13 @@
         <select
           class="form-control"
           name="employeeLeaveStatus"
-          id="employeeLeaveStatus">
-          <option value="granted"> Granted </option>
-          <option value="rejected"> Rejected </option>
+          id="employeeLeaveStatus"
+          [(ngModel)]="leave.status">
+          <option value="Granted"> Granted </option>
+          <option value="Rejected"> Rejected </option>
         </select>
     </td>
+    <td><a (click)="updateEmployeeLeave(leave.id)"><i class="fas fa-edit"></i></a></td>
       </tr>
     </tbody>
   </table>

@@ -4,7 +4,7 @@
 <hr>
 <div class="container">
   <form novalidate #form="ngForm" >
-      <input type="hidden" name="empid" [value]="employee.employeeid">
+      <!--<input type="hidden" name="empid" [value]="employee.employeeid">-->
     <div class="form-group col-md-5">
       <label for="name">Name</label>
       <input
@@ -71,7 +71,7 @@
     <button
          type="submit"
          class="btn btn-primary"
-        [disabled]="form.invalid"
+
         (click)="saveEmployee()">
          Submit Data
     </button>
