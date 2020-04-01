@@ -1,0 +1,65 @@
+<h1>Leave List</h1>
+<hr>
+<div class="row">
+  <div class="form-group">
+    <select
+      class="form-control"
+      name="qualification"
+      id="qualification">
+      <option > type </option>
+    </select>
+  </div>
+  <div class="form-group" style="margin-left: 1%;">
+
+    <select
+      class="form-control"
+      name="employeeName"
+      id="employeeName">
+      <option> type </option>
+    </select>
+  </div>
+  <div class="form-group" style="margin-left: 2%;">
+    <div class="input-group">
+      <div class="input-group-prepend">
+        <div class="input-group-text bg-white">
+          <i class="fas fa-search"></i>
+        </div>
+        <input name="EmployeeName" class="form-control" placeholder="Employee Name">
+      </div>
+    </div>
+  </div>
+</div>
+<div class='table-responsive'>
+  <table class='table'>
+    <thead>
+      <tr>
+        <th>Employee Name</th>
+        <th>Start Date</th>
+        <th>End Date</th>
+        <th>Leave Type</th>
+        <th>Status</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let leave of employeeLeave">
+        <td>{{leave.employeeid}}</td>
+        <td>{{leave.leaveStartDate}}</td>
+        <td>{{leave.leaveEndDate}}</td>
+      <td>
+        {{leave.leaveid}}
+    </td>
+    <td>{{leave.status}}</td>
+    <td>
+        <select
+          class="form-control"
+          name="employeeLeaveStatus"
+          id="employeeLeaveStatus">
+          <option value="granted"> Granted </option>
+          <option value="rejected"> Rejected </option>
+        </select>
+    </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

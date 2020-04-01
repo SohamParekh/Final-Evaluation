@@ -1,0 +1,31 @@
+<h1>Leave List</h1>
+<hr>
+<div class="row">
+<div class="form-group" style="margin-left: 87%;">
+  <a type="button" class="btn btn-primary" [routerLink]="['/Admin/leave/Add']" value="Add New">Add New</a>
+</div>
+</div>
+<div class='table-responsive'>
+  <table class='table'>
+    <thead>
+      <tr>
+        <th>Leave Name</th>
+        <th>Number of Days</th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let leave of leave ">
+        <td>{{leave.name}}</td>
+        <td>{{leave.maximumLeavesAllowed}}</td>
+        <td>
+          <i class="fas fa-edit"></i>
+      </td>
+      <td>
+        <i class="fas fa-trash-alt"></i>
+    </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

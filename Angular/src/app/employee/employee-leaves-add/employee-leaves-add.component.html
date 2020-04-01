@@ -1,0 +1,48 @@
+<h1>Apply Leave</h1>
+  <hr>
+  <div class="container">
+    <form novalidate #form="ngForm">
+      <div class="form-group col-md-5">
+        <label for="leavetype">Leave Type</label>
+        <select
+          class="form-control"
+          name="leavetype"
+          id="leavetype"
+
+        >
+          <option > type </option>
+        </select>
+      </div>
+
+      <div class="form-group col-md-5">
+        <label for="fromdate">From Date</label>
+        <input
+          id="fromdate"
+          name="fromdate"
+          placeholder="DD/MM/YYYY"
+          class="form-control"
+          required
+        />
+      </div>
+
+      <div class="form-group col-md-5">
+        <label for="todate">To Date</label>
+        <input
+          id="todate"
+          name="todate"
+          placeholder="DD/MM/YYYY"
+          class="form-control"
+          required
+        />
+      </div>
+
+
+      <button
+           type="submit"
+           class="btn btn-primary"
+           >
+           Save
+      </button>
+    </form>
+  </div>
+
