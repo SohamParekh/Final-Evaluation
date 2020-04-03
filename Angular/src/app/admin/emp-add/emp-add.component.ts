@@ -3,6 +3,7 @@ import { Employee } from 'src/app/models/Employee';
 import { DataService } from '../data.service';
 import { Router, ActivatedRoute } from "@angular/router";
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { ToastrService } from 'ngx-toastr';
 @Component({
   selector: 'app-emp-add',
   templateUrl: './emp-add.component.html',
@@ -20,7 +21,8 @@ export class EmpADDComponent implements OnInit {
   };
   ID: number;
   pageTitle: string;
-  constructor(public service:DataService,private activatedRoute: ActivatedRoute,private route:Router,private http:HttpClient) { }
+  constructor(public service:DataService,private activatedRoute: ActivatedRoute,private route:Router
+          ,private http:HttpClient,private toastr:ToastrService) { }
 
   ngOnInit(): void {
   }
@@ -33,7 +35,8 @@ export class EmpADDComponent implements OnInit {
       })
     });
     data.subscribe();
-    alert(`Successfully Added Employee ${this.employee.name}`);
+    this.toastr.success(`Successfully Added Employee ${this.employee.name}`);
     this.route.navigateByUrl('/Admin/Employee/List');
+    //window.location.reload();
   }
 }

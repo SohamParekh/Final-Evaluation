@@ -17,26 +17,29 @@ export class LeaveListDetailsComponent implements OnInit {
   Employee:Employee[];
   Leave:Leave[];
   ID:number;
+  p:number = 1;
   constructor(private service:DataService,private http:HttpClient,private activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.service.getEmployeeLeaves().subscribe(
       empleave => {this.employeeLeave = empleave}
     );
+    this.service.getEmployees().subscribe(
+      emp => this.Employee = emp
+    );
   }
   updateEmployeeLeave(id){
     var url = 'http://localhost:65343/api';
-    this.service.getEmployeeLeavesbyEmployeeId(id).subscribe(
+    this.service.getEmployeeLeaves().subscribe(
       empleave => this.employeeLeave = empleave
     );
-
       var emp = this.employeeLeave.find(e => e.id === id);
-      console.log(emp);
-    //this.service.updateEmployeeLeave(id).subscribe();
     var data= this.http.put<EmployeeLeaveMapping>(url+`/EmployeeLeaveMappings/${id}`,emp);
     data.subscribe();
     window.location.reload();
-    //alert(`Successfully Updated EmployeeLeave`);
-    //this.route.navigateByUrl('/Admin/Employee/List');
+  }
+  test(){
+    
+    console.log(this.employeeLeave.filter(e => e.employeeid));
   }
 }

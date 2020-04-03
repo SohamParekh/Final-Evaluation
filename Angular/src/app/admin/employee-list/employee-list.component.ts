@@ -9,6 +9,7 @@ import { DataService } from '../data.service';
 })
 export class EmployeeListComponent implements OnInit {
   employees:Employee[];
+  p:number = 1;
   _listFilter = '';
   get listFilter(): string {
     return this._listFilter;

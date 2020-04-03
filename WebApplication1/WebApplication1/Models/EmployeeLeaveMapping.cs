@@ -11,9 +11,9 @@ namespace WebApplication1.Models
     {
         [Key]
         public int id { get; set; }
-        [ForeignKey("Employeeid")]
+        [ForeignKey("employeeid")]
         public int employeeid { get; set; }
-        [ForeignKey("Leaveid")]
+        [ForeignKey("leaveid")]
         public int leaveid { get; set; }
         public string leaveStartDate { get; set; }
         public string leaveEndDate { get; set; }

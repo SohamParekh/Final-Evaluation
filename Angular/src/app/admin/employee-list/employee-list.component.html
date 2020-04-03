@@ -28,7 +28,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let employee of filteredProducts">
+      <tr *ngFor="let employee of filteredProducts | paginate: { itemsPerPage: 5, currentPage: p }">
         <td>{{employee.name}}</td>
         <td>{{employee.email}}</td>
         <td>{{employee.dob}}</td>
@@ -42,4 +42,5 @@
       </tr>
     </tbody>
   </table>
+  <pagination-controls (pageChange)="p = $event"></pagination-controls>
 </div>

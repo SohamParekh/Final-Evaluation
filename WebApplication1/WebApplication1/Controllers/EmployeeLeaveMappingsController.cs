@@ -77,12 +77,12 @@ namespace WebApplication1.Controllers
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for
         // more details see https://aka.ms/RazorPagesCRUD.
         [HttpPost]
-        public async Task<ActionResult<EmployeeLeaveMapping>> PostEmployeeLeaveMapping(EmployeeLeaveMapping employeeLeaveMapping)
+        public ActionResult<EmployeeLeaveMapping> PostEmployeeLeaveMapping(EmployeeLeaveMapping employeeLeaveMapping)
         {
             _context.employeeLeaveMappings.Add(employeeLeaveMapping);
-            await _context.SaveChangesAsync();
-
-            return CreatedAtAction("GetEmployeeLeaveMapping", new { id = employeeLeaveMapping.id }, employeeLeaveMapping);
+             _context.SaveChanges();
+            return Ok(employeeLeaveMapping);
+            //return CreatedAtAction("GetEmployeeLeaveMapping", new { id = employeeLeaveMapping.id }, employeeLeaveMapping);
         }
 
         // DELETE: api/EmployeeLeaveMappings/5

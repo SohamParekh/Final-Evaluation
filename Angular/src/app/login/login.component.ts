@@ -27,7 +27,7 @@ export class LoginComponent implements OnInit {
     if(this.email === "admin@gmail.com"){
       this.route.navigateByUrl("/Admin/Employee/List");
     }
-    else{
+    else {
       this.emp = this.employee.find(e => e.email === this.email);
       this.route.navigateByUrl("/Employee/Profile/"+this.emp.employeeid);
     }

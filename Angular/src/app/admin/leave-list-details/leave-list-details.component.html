@@ -42,7 +42,8 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let leave of employeeLeave">
+      <tr *ngFor="let leave of employeeLeave | paginate: { itemsPerPage: 5, currentPage: p }">
+
         <td>{{leave.employeeid}}</td>
         <td>{{leave.leaveStartDate}}</td>
         <td>{{leave.leaveEndDate}}</td>
@@ -64,4 +65,9 @@
       </tr>
     </tbody>
   </table>
+  <pagination-controls (pageChange)="p = $event"></pagination-controls>
+</div>
+
+<div class="form-group">
+  <button class="btn btn-outline-primary" (click)="test()">Test</button>
 </div>

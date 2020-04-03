@@ -17,6 +17,10 @@ import { LoginComponent } from './login/login.component';
 import { AppRoutingModule } from './app-routing.module';
 import { EmployeeEditComponent } from './employee/employee-edit/employee-edit.component';
 import { EmpADDComponent } from './admin/emp-add/emp-add.component';
+import {NgxPaginationModule} from 'ngx-pagination';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
+
 
 @NgModule({
   declarations: [
@@ -40,6 +44,12 @@ import { EmpADDComponent } from './admin/emp-add/emp-add.component';
     FormsModule,
     HttpClientModule,
     AppRoutingModule,
+    NgxPaginationModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot({
+      timeOut:2000,
+      preventDuplicates:true
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]

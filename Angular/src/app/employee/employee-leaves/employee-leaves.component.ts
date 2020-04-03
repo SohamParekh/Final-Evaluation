@@ -46,8 +46,5 @@ export class EmployeeLeavesComponent implements OnInit {
   add(){
     this.route.navigateByUrl("/Employee/LeaveList/Add");
   }
-  test(){
-    //this.employeeLeave.find(el => el.employeeid === this.ID);
-    console.log(this.empleav = this.employeeLeave.filter(e => e.employeeid === this.ID));
-  }
+  
 }
