@@ -70,11 +70,17 @@
 
     <button
          type="submit"
-         class="btn btn-primary"
-
+         class="btn btn-outline-primary m-2"
+        [disabled]="form.invalid"
         (click)="saveEmployee()">
-         Submit Data
+         Update Data
     </button>
+    <button
+           type="submit col-md-3"
+           class="btn btn-warning"
+           [routerLink]="['/Admin/Employee/List']">
+           Cancel
+      </button>
   </form>
 </div>
 

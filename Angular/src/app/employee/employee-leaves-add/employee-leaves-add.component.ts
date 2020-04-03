@@ -20,7 +20,9 @@ export class EmployeeLeavesAddComponent implements OnInit {
     leaveid:null,
     leaveStartDate:null,
     leaveEndDate:null,
-    status:'Pending'
+    status:'Pending',
+    diff:0,
+    employee:null
   }
   constructor(private service:DataService,private activatedRoute: ActivatedRoute,private http:HttpClient,
               private route:Router) { }

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Employee } from 'src/app/models/Employee';
 import { Router, ActivatedRoute } from "@angular/router";
 import { DataService } from 'src/app/admin/data.service';
+import { ToastrService } from 'ngx-toastr';
 @Component({
   selector: 'app-employee-edit',
   templateUrl: './employee-edit.component.html',
@@ -19,7 +20,8 @@ export class EmployeeEditComponent implements OnInit {
   };
   ID: number;
   pageTitle: string;
-  constructor(public service:DataService,private activatedRoute: ActivatedRoute,private route:Router) { }
+  constructor(private service:DataService,private activatedRoute: ActivatedRoute,private route:Router,
+              private toastr:ToastrService) { }
 
   ngOnInit(): void {
     this.activatedRoute.paramMap.subscribe(
@@ -54,14 +56,8 @@ export class EmployeeEditComponent implements OnInit {
   }
   onSaveComplete(message?: string): void {
     if (message) {
-      if(this.ID == 0){
-        alert(`Successfully Added Employee: ${this.employee.name}`);
+        this.toastr.success(`Successfully Updated Employee: ${this.employee.name}`);
       }
-      else{
-        alert(`Successfully Updated Employee: ${this.employee.name}`);
-      }
-
-    }
     this.route.navigateByUrl("/Employee/Profile/"+this.ID);
   }
 }

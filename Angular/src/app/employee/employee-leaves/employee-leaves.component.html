@@ -17,9 +17,10 @@
 </div>
 <div class='table-responsive'>
   <table class='table' *ngIf='empleav && empleav.length'>
-    <thead>
+    <thead style="color: #337AB7;">
       <tr>
         <th>Leave Dates</th>
+        <th>Days</th>
         <th>Leave type</th>
         <th>Status</th>
       </tr>
@@ -27,10 +28,14 @@
     <tbody>
       <tr *ngFor="let empleave of empleav">
         <td>{{empleave.leaveStartDate}} to {{empleave.leaveEndDate}}</td>
-        <td>{{empleave.leaveid}}</td>
+        <td>{{empleave.diff}}</td>
+        <td>{{leave|leave:empleave.leaveid}}</td>
         <td>{{empleave.status}}</td>
       </tr>
     </tbody>
   </table>
+</div>
+<div class="form-group">
+  <button class="btn btn-outline-primary" (click)="test1()">Test</button>
 </div>
 
