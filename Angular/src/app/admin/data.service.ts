@@ -11,6 +11,7 @@ import { EmployeeLeaveMapping } from '../models/EmployeeLeaveMapping';
   providedIn: 'root'
 })
 export class DataService {
+  //API
  private url = 'http://localhost:65343/api';
 
   constructor(private http: HttpClient) { }
@@ -22,36 +23,18 @@ export class DataService {
       );
   }
   getEmployeesbyId(id: number): Observable<Employee> {
-    if(id == 0){
-      return of(this.initializeEmployee());
-    }
-    else{
       return this.http.get<Employee>(this.url+`/Employees/${id}`)
       .pipe(
         tap(data => console.log('getEmployeesbyId: ' + JSON.stringify(data))),
         //catchError(this.handleError)
       );
-    }
 }
 getEmployeesLeavebyId(id: number) {
-
     return this.http.get(this.url+`/EmployeeLeaveMappings/${id}`)
     .pipe(
       tap(data => console.log('getEmployeesbyId: ' + JSON.stringify(data))),
       //catchError(this.handleError)
     );
-
-}
-private initializeEmployee(): Employee {
-  return {
-    employeeid:0,
-    name: null,
-    email:null,
-    password:null,
-    dob:null,
-    doj:null,
-    salary:null
-  };
 }
   getLeaves(): Observable<Leave[]> {
     return this.http.get<Leave[]>(this.url+'/Leaves')
@@ -71,13 +54,6 @@ private initializeEmployee(): Employee {
         //catchError(err => this.handleError(err))
       );
   }
-  postEmployeeDetails(Employee:Employee){
-    return this.http.post(this.url+'/Employees',JSON.stringify(Employee), {
-      headers: new HttpHeaders({
-        'Content-Type': 'application/json'
-      })
-    });
-  }
   updateEmployee(employee: Employee): Observable<Employee> {
     return this.http.put<Employee>(this.url+`/Employees/${employee.employeeid}`,employee , {
       headers: new HttpHeaders({
@@ -89,13 +65,6 @@ private initializeEmployee(): Employee {
         map(() => employee),
        // catchError(this.handleError)
       );
-  }
-  updateEmployeeLeave(employeeleave: EmployeeLeaveMapping) {
-    return this.http.put(this.url+`/EmployeeLeaveMappings/${employeeleave.id}`,employeeleave , {
-      headers: new HttpHeaders({
-        'Content-Type': 'application/json'
-      })
-    });
   }
   deleteEmployee(id: number): Observable<Employee> {
     return this.http.delete<Employee>(this.url+`/Employees/${id}`, {

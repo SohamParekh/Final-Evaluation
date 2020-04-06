@@ -20,6 +20,7 @@
         <th>Employee Name</th>
         <th>Start Date</th>
         <th>End Date</th>
+        <th>Days</th>
         <th>Leave type</th>
         <th>Status</th>
         <th>Actions</th>
@@ -31,6 +32,7 @@
         <td>{{Employee|employee:empleave.employeeid}}</td>
         <td>{{empleave.leaveStartDate}}</td>
         <td>{{empleave.leaveEndDate}}</td>
+        <td>{{empleave.diff}}</td>
         <td>{{leave|leave:empleave.leaveid}}</td>
     <td>{{empleave.status}}</td>
     <td>
@@ -51,5 +53,5 @@
 </div>
 
 <div class="form-group">
-  <button class="btn btn-outline-primary" (click)="test()">Test</button>
+  <button class="btn btn-outline-primary" >Test</button>
 </div>

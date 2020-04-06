@@ -49,6 +49,7 @@ export class EmployeeLeavesAddComponent implements OnInit {
         'Content-Type': 'application/json'
       })
     });
+    console.log(this.empleave);
     data.subscribe();
     alert(`Successfully Added Leave`);
     this.route.navigateByUrl('/Employee/LeaveList/'+this.ID);

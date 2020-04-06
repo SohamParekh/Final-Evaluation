@@ -20,26 +20,24 @@ import { EmpADDComponent } from './admin/emp-add/emp-add.component';
   imports: [
     RouterModule.forRoot([
       { path: '', component: LoginComponent},
-      { path: 'Admin', component: AdminComponent,
+      { path: 'Admin', component: AdminComponent,  //Admin Component
         children : [
-          { path: 'Employee/List', component: EmployeeListComponent },
-          { path: 'Employee/Edit/:id', component: EmployeeAddComponent },
-          { path: 'Employee/Add', component: EmpADDComponent },
-          { path: 'leave/Add', component: LeaveAddComponent },
-          { path: 'leave/List', component: LeaveListComponent },
-          { path: 'leaveList/Employee', component: LeaveListDetailsComponent },
+          { path: 'Employee/List', component: EmployeeListComponent }, // Admin Employee List Component
+          { path: 'Employee/Edit/:id', component: EmployeeAddComponent }, // Admin Employee Edit Component
+          { path: 'Employee/Add', component: EmpADDComponent }, // Admin Employee Add Component
+          { path: 'leave/Add', component: LeaveAddComponent },  // Admin Leave Add Component
+          { path: 'leave/List', component: LeaveListComponent }, // Admin Leave List Component
+          { path: 'leaveList/Employee', component: LeaveListDetailsComponent }, // Admin Employee Leave List Component
         ]
       },
-      { path: 'Employee', component:  EmployeeComponent,
+      { path: 'Employee', component:  EmployeeComponent, // Employee Component
         children : [
-          { path: 'Profile/:id', component:  EmployeeProfileComponent},
-          { path: 'Profile/Edit/:id', component:  EmployeeEditComponent},
-          { path: 'LeaveList/:id', component: EmployeeLeavesComponent },
-          { path: 'LeaveList/:id/Add', component: EmployeeLeavesAddComponent },
+          { path: 'Profile/:id', component:  EmployeeProfileComponent}, // Employee Profile Component
+          { path: 'Profile/Edit/:id', component:  EmployeeEditComponent}, // Employee Profile Edit Component
+          { path: 'LeaveList/:id', component: EmployeeLeavesComponent }, // Employee Leave List Component
+          { path: 'LeaveList/:id/Add', component: EmployeeLeavesAddComponent }, // Employee Leave Add Component
         ]
       },
-
-
     ])
   ],
   exports: [RouterModule]

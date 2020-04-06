@@ -11,19 +11,10 @@ import { Employee } from '../models/Employee';
 export class EmployeeComponent implements OnInit {
   ID: number;
   employee:Employee;
-  constructor(private activatedRoute: ActivatedRoute,private route:Router,private service:DataService) { }
+  constructor() { }
 
   ngOnInit(): void {
-    this.activatedRoute.paramMap.subscribe(
-      params => {
-        this.ID = +params.get('id');
-        this.getEmployee(this.ID);
-      }
-    );
+
   }
-  getEmployee(id: any) {
-    this.service.getEmployeesbyId(id).subscribe(
-      (employee: Employee) => {this.employee = employee},
-    );
-  }
+
 }

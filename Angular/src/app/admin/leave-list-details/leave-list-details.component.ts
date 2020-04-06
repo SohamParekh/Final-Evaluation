@@ -26,7 +26,7 @@ export class LeaveListDetailsComponent implements OnInit {
 
   ngOnInit(): void {
     this.service.getEmployeeLeaves().subscribe(
-      empleave => {this.employeeLeave = empleave}
+      empleave => {this.employeeLeave = empleave,this.calculate_days()}
     );
     this.service.getLeaves().subscribe(
       leave => {
@@ -53,8 +53,13 @@ export class LeaveListDetailsComponent implements OnInit {
     alert(`Leave Status changed to ${emp.status} for ${this.e.name}`);
     window.location.reload();
   }
-  test(){
-   // console.log(this.Employee.filter(e => e.employeeid));
-   // console.log(this.employeeLeave.filter(e => e.employeeid));
+  calculate_days(){
+    for(var i=0;i<this.employeeLeave.length;i++){
+        var date1 = new Date(this.employeeLeave[i].leaveStartDate);
+        var date2 = new Date(this.employeeLeave[i].leaveEndDate);
+        var diffintime = date2.getTime()-date1.getTime();
+        this.employeeLeave[i].diff = (diffintime/(1000 * 3600 * 24))+1;
+      }
   }
+
 }

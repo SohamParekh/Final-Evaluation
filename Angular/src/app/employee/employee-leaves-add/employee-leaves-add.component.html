@@ -24,7 +24,14 @@
           class="form-control"
           [(ngModel)]="empleave.leaveStartDate"
           required
+          #leavestart="ngModel"
         />
+        <div
+          class="alert-danger"
+          *ngIf="leavestart.errors && (leavestart.dirty || leavestart.touched)"
+        >
+          <span *ngIf="leavestart.errors.required">Leave Start Date is required</span>
+        </div>
       </div>
 
       <div class="form-group col-md-5">
@@ -36,16 +43,31 @@
           class="form-control"
           [(ngModel)]="empleave.leaveEndDate"
           required
-        />
-      </div>
+          #leaveend="ngModel"
+          />
+          <div
+            class="alert-danger"
+            *ngIf="leaveend.errors && (leaveend.dirty || leaveend.touched)"
+          >
+            <span *ngIf="leaveend.errors.required">Leave End Date is required</span>
+          </div>
+        </div>
 
 
       <button
            type="submit"
-           class="btn btn-primary"
+           class="btn btn-outline-primary m-2"
+           [disabled]="form.invalid"
            (click)="save()"
            >
            Save
+      </button>
+      <button
+           type="submit"
+           class="btn btn-warning"
+          [routerLink]="['/Employee/LeaveList',this.ID]"
+           >
+           Cancel
       </button>
     </form>
   </div>

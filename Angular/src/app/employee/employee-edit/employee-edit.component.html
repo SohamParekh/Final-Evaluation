@@ -14,8 +14,15 @@
           placeholder="First Name"
           [(ngModel)]="employee.name"
           required
-        />
-      </div>
+          #firstName="ngModel"
+          />
+          <div
+            class="alert-danger"
+            *ngIf="firstName.errors && (firstName.dirty || firstName.touched)"
+          >
+            <span *ngIf="firstName.errors.required">First name is required</span>
+          </div>
+        </div>
 
       <div class="form-group col-md-5">
         <label for="email">Email</label>
@@ -28,8 +35,18 @@
           [(ngModel)]="employee.email"
           required
           pattern="[^ @]*@[^ @]*"
-        />
-      </div>
+          #email="ngModel"
+          />
+          <div
+            class="alert-danger"
+            *ngIf="email.errors && (email.dirty || email.touched)"
+          >
+            <span *ngIf="email.errors.required">Email is required</span>
+            <span *ngIf="email.errors.pattern"
+              >Email is not in correct Format!</span
+            >
+          </div>
+        </div>
 
       <div class="form-group col-md-5">
         <label for="password">Password</label>
@@ -41,32 +58,53 @@
           [(ngModel)]="employee.password"
           class="form-control"
           required
-        />
-      </div>
+          #password="ngModel"
+          />
+          <div
+            class="alert-danger"
+            *ngIf="password.errors && (password.dirty || password.touched)"
+          >
+            <span *ngIf="password.errors.required">Password is required</span>
+          </div>
+        </div>
 
       <div class="form-group col-md-5">
         <label for="password">Date of Joining</label>
         <input
           id="doj"
           name="doj"
-          placeholder="DD-MM-YYYY"
+          placeholder="MM-DD-YYYY"
           class="form-control"
           [(ngModel)]="employee.doj"
           required
-        />
-      </div>
+          #doj="ngModel"
+          />
+          <div
+            class="alert-danger"
+            *ngIf="doj.errors && (doj.dirty || doj.touched)"
+          >
+            <span *ngIf="doj.errors.required">Date of Joining is required</span>
+          </div>
+        </div>
 
       <div class="form-group col-md-5">
         <label for="password">Date of Birth</label>
         <input
           id="dob"
           name="dob"
-          placeholder="DD-MM-YYYY"
+          placeholder="MM-DD-YYYY"
           class="form-control"
           [(ngModel)]="employee.dob"
           required
-        />
-      </div>
+          #dob="ngModel"
+          />
+          <div
+            class="alert-danger"
+            *ngIf="dob.errors && (dob.dirty || dob.touched)"
+          >
+            <span *ngIf="dob.errors.required">Date of Birth is required</span>
+          </div>
+        </div>
 
       <button
            type="submit"

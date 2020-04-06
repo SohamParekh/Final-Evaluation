@@ -10,7 +10,7 @@ import { DataService } from 'src/app/admin/data.service';
 })
 export class EmployeeProfileComponent implements OnInit {
   employee:Employee={
-    employeeid:null,
+    employeeid:0,
     email:null,
     password:null,
     dob:null,

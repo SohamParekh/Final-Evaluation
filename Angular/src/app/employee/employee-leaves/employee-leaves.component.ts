@@ -34,23 +34,21 @@ export class EmployeeLeavesComponent implements OnInit {
       empleave =>{
         this.employeeLeave = empleave,
         this.empleav = this.employeeLeave.filter(e => e.employeeid === this.ID),
-        this.test();
+        this.calculate_days();
       }
     );
   }
-
   add(){
     this.route.navigateByUrl("/Employee/LeaveList/Add");
   }
-  test(){
+  calculate_days(){
     for(var i=0;i<this.empleav.length;i++){
         var date1 = new Date(this.empleav[i].leaveStartDate);
         var date2 = new Date(this.empleav[i].leaveEndDate);
         var diffintime = date2.getTime()-date1.getTime();
-        this.empleav[i].diff = diffintime/(1000 * 3600 * 24);
+        this.empleav[i].diff = (diffintime/(1000 * 3600 * 24))+1;
       }
   }
   test1(){
-
   }
 }
