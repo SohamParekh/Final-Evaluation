@@ -19,27 +19,27 @@ export class DataService {
   getEmployees(): Observable<Employee[]> {
     return this.http.get<Employee[]>(this.url+'/Employees')
       .pipe(
-       // catchError(err => this.handleError(err))
+        catchError(err => this.handleError(err))
       );
   }
   getEmployeesbyId(id: number): Observable<Employee> {
       return this.http.get<Employee>(this.url+`/Employees/${id}`)
       .pipe(
         tap(data => console.log('getEmployeesbyId: ' + JSON.stringify(data))),
-        //catchError(this.handleError)
+        catchError(this.handleError)
       );
 }
 getEmployeesLeavebyId(id: number) {
     return this.http.get(this.url+`/EmployeeLeaveMappings/${id}`)
     .pipe(
       tap(data => console.log('getEmployeesbyId: ' + JSON.stringify(data))),
-      //catchError(this.handleError)
+      catchError(this.handleError)
     );
 }
   getLeaves(): Observable<Leave[]> {
     return this.http.get<Leave[]>(this.url+'/Leaves')
       .pipe(
-        //catchError(err => this.handleError(err))
+        catchError(err => this.handleError(err))
       );
   }
   getEmployeeLeaves(): Observable<EmployeeLeaveMapping[]> {
@@ -51,7 +51,7 @@ getEmployeesLeavebyId(id: number) {
   getEmployeeLeavesbyEmployeeId(id:number): Observable<EmployeeLeaveMapping[]> {
     return this.http.get<EmployeeLeaveMapping[]>(this.url+'/EmployeeLeaveMappings')
       .pipe(
-        //catchError(err => this.handleError(err))
+        catchError(err => this.handleError(err))
       );
   }
   updateEmployee(employee: Employee): Observable<Employee> {
@@ -63,7 +63,7 @@ getEmployeesLeavebyId(id: number) {
       .pipe(
         tap(() => console.log('updateEmployee: ' + employee.employeeid)),
         map(() => employee),
-       // catchError(this.handleError)
+        catchError(this.handleError)
       );
   }
   deleteEmployee(id: number): Observable<Employee> {

@@ -24,8 +24,9 @@
   </ul>
 </nav>
 
-<div class="container-fluid">
-  <router-outlet></router-outlet>
+<div class="container-fluid"
+  [@slideInAnimation]="o.isActivated ? o.activatedRoute : ''">
+  <router-outlet #o="outlet"></router-outlet>
 </div>
 
 <!--<div class="card">

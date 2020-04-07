@@ -5,7 +5,6 @@ import { Employee } from 'src/app/models/Employee';
 import { Leave } from 'src/app/models/Leave';
 import { Router, ActivatedRoute } from '@angular/router';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-leave-list-details',
@@ -17,12 +16,11 @@ export class LeaveListDetailsComponent implements OnInit {
   employeeleav:EmployeeLeaveMapping;
   Employee:Employee[]=[];
   leave:Leave[]=[];
-  e:Employee;
+  emp:Employee;
   ID:number;
   p:number = 1;
 
-  constructor(private service:DataService,private http:HttpClient,private activatedRoute: ActivatedRoute,
-              private toastr:ToastrService) { }
+  constructor(private service:DataService,private http:HttpClient,private activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.service.getEmployeeLeaves().subscribe(
@@ -47,10 +45,10 @@ export class LeaveListDetailsComponent implements OnInit {
       empleave => this.employeeLeave = empleave
     );
       var emp = this.employeeLeave.find(e => e.id === id);
-      this.e = this.Employee.find(e => e.employeeid === emp.employeeid);
+      this.emp = this.Employee.find(e => e.employeeid === emp.employeeid);
     var data= this.http.put<EmployeeLeaveMapping>(url+`/EmployeeLeaveMappings/${id}`,emp);
     data.subscribe();
-    alert(`Leave Status changed to ${emp.status} for ${this.e.name}`);
+    alert(`Leave Status changed to ${emp.status} for ${this.emp.name}`);
     window.location.reload();
   }
   calculate_days(){

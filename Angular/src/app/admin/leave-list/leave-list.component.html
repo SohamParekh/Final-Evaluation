@@ -16,7 +16,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let leave of leave ">
+      <tr *ngFor="let leave of leave | paginate: { itemsPerPage: 5, currentPage: p }">
         <td>{{leave.name}}</td>
         <td>{{leave.maximumLeavesAllowed}}</td>
       <td>
@@ -25,4 +25,5 @@
       </tr>
     </tbody>
   </table>
+  <pagination-controls (pageChange)="p = $event"></pagination-controls>
 </div>

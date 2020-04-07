@@ -10,6 +10,7 @@ import { DataService } from '../data.service';
 })
 export class LeaveListComponent implements OnInit {
   leave:Leave[];
+  p:number = 1;
   constructor(private route:Router,private service:DataService) { }
 
   ngOnInit(): void {
