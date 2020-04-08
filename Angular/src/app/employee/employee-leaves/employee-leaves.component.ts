@@ -57,7 +57,7 @@ export class EmployeeLeavesComponent implements OnInit {
         }
       }
   }
-  test1(){
+  /*test1(){
     for(var i=0;i<this.empleav.length;i++){
       var date1 = new Date(this.empleav[i].leaveStartDate);
       var date2 = new Date(this.empleav[i].leaveEndDate);
@@ -70,5 +70,5 @@ export class EmployeeLeavesComponent implements OnInit {
         console.log(days_balance);
      }
     }
-  }
+  }*/
 }

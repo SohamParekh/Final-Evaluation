@@ -1,4 +1,5 @@
-<h1>Leave List</h1>
+<div class="card" style="margin-top: 10px;">
+  <div class="card-header"><h1>Leave List</h1></div>
 <hr>
 <div class="row">
 
@@ -8,15 +9,16 @@
         <div class="input-group-text bg-white">
           <i class="fas fa-search"></i>
         </div>
-        <input name="EmployeeName" class="form-control" placeholder="Employee Name">
+        <input name="EmployeeName" class="form-control" placeholder="Employee Id" [(ngModel)]="listFilter">
       </div>
     </div>
   </div>
 </div>
-<div class='table-responsive'>
+<div class='card-body table-responsive'>
   <table class='table'>
     <thead style="color: #337AB7;">
       <tr>
+        <th>Employee ID</th>
         <th>Employee Name</th>
         <th>Start Date</th>
         <th>End Date</th>
@@ -27,8 +29,8 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let empleave of employeeLeave | paginate: { itemsPerPage: 5, currentPage: p }">
-
+      <tr *ngFor="let empleave of filteredProducts | paginate: { itemsPerPage: 5, currentPage: p }">
+        <td>{{empleave.employeeid}}</td>
         <td>{{Employee|employee:empleave.employeeid}}</td>
         <td>{{empleave.leaveStartDate}}</td>
         <td>{{empleave.leaveEndDate}}</td>
@@ -51,7 +53,4 @@
   </table>
   <pagination-controls (pageChange)="p = $event"></pagination-controls>
 </div>
-
-<div class="form-group">
-  <button class="btn btn-outline-primary" >Test</button>
 </div>

@@ -60,4 +60,7 @@ export class EmployeeEditComponent implements OnInit {
       }
     this.route.navigateByUrl("/Employee/Profile/"+this.ID);
   }
+  back(){
+    this.route.navigateByUrl('/Employee/Profile/'+this.ID);
+  }
 }

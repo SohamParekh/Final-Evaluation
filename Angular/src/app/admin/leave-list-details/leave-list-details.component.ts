@@ -13,18 +13,31 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 })
 export class LeaveListDetailsComponent implements OnInit {
   employeeLeave:EmployeeLeaveMapping[]=[];
-  employeeleav:EmployeeLeaveMapping;
+ // employeeleav:EmployeeLeaveMapping;
   Employee:Employee[]=[];
   leave:Leave[]=[];
   emp:Employee;
   ID:number;
   p:number = 1;
+  _listFilter = '';
+  get listFilter(): string {
+    return this._listFilter;
+  }
+  set listFilter(value: string) {
+    this._listFilter = value;
+    this.filteredProducts = this.listFilter ? this.performFilter(this.listFilter) : this.employeeLeave;
+  }
 
+
+  filteredProducts: EmployeeLeaveMapping[] = [];
   constructor(private service:DataService,private http:HttpClient,private activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.service.getEmployeeLeaves().subscribe(
-      empleave => {this.employeeLeave = empleave,this.calculate_days()}
+      empleave => {
+        this.employeeLeave = empleave,
+        this.filteredProducts = this.employeeLeave
+        ,this.calculate_days()}
     );
     this.service.getLeaves().subscribe(
       leave => {
@@ -39,6 +52,11 @@ export class LeaveListDetailsComponent implements OnInit {
     );
     //var e = this.Employee.find(e => e.employeeid === this.employeeLeave.employeeid);
   }
+  performFilter(filterBy: string): EmployeeLeaveMapping[] {
+    filterBy = filterBy.toLocaleLowerCase();
+    return this.employeeLeave.filter((employee: EmployeeLeaveMapping) =>
+      employee.employeeid.toString().indexOf(filterBy) !== -1);
+  }
   updateEmployeeLeave(id){
     var url = 'http://localhost:65343/api';
     this.service.getEmployeeLeaves().subscribe(
@@ -48,6 +66,7 @@ export class LeaveListDetailsComponent implements OnInit {
       this.emp = this.Employee.find(e => e.employeeid === emp.employeeid);
     var data= this.http.put<EmployeeLeaveMapping>(url+`/EmployeeLeaveMappings/${id}`,emp);
     data.subscribe();
+    /*--By mistake status in database is of data type nchar(10) so it will take 10 spaces due to that there will be some gap after status is alert box --*/
     alert(`Leave Status changed to ${emp.status} for ${this.emp.name}`);
     window.location.reload();
   }
