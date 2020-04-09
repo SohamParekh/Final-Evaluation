@@ -59,11 +59,12 @@ export class LeaveListDetailsComponent implements OnInit {
   }
   updateEmployeeLeave(id){
     var url = 'http://localhost:65343/api';
-    this.service.getEmployeeLeaves().subscribe(
+    /*this.service.getEmployeeLeaves().subscribe(
       empleave => this.employeeLeave = empleave
-    );
+    );*/
       var emp = this.employeeLeave.find(e => e.id === id);
       this.emp = this.Employee.find(e => e.employeeid === emp.employeeid);
+      //console.log(this.emp);
     var data= this.http.put<EmployeeLeaveMapping>(url+`/EmployeeLeaveMappings/${id}`,emp);
     data.subscribe();
     /*--By mistake status in database is of data type nchar(10) so it will take 10 spaces due to that there will be some gap after status is alert box --*/
